@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#100b19">
+<meta name="description" content="恋を探す村人、恋を隠す人狼。ツイステなりきり×恋愛×人狼の学園へようこそ。">
+<title>TWISTED LOVE | 恋を隠す者、恋を探す者</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+JP:wght@400;500;700&display=swap');
+:root{--bg:#0d0914;--purple:#2c1646;--purple2:#6b3d8c;--gold:#c7a977;--ink:#e8deec;--muted:#b6a9c3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Serif JP',serif;line-height:1.9}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 80% 8%,#42225a77,transparent 42%),radial-gradient(ellipse at 12% 75%,#25103966,transparent 45%);pointer-events:none}
+a{color:inherit;text-decoration:none}button{font:inherit}
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 6%;background:#0e0919e8;backdrop-filter:blur(12px);border-bottom:1px solid #76578c66}
+.brand{font:700 1.05rem Cinzel,serif;letter-spacing:.15em;color:var(--gold)}
+nav{display:flex;gap:22px;flex-wrap:wrap}nav a{font-size:.75rem;color:#d8c8de}nav a:hover{color:var(--gold)}
+.hero{min-height:85vh;display:grid;place-items:center;text-align:center;padding:110px 20px 90px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:370px;height:370px;border:1px solid #c7a97744;transform:rotate(45deg);box-shadow:0 0 0 28px #c7a97708,0 0 0 55px #c7a97706;pointer-events:none}
+.moon{position:absolute;top:8%;right:13%;width:105px;height:105px;border-radius:50%;box-shadow:-22px 9px 0 0 #bba0d3;opacity:.22;transform:rotate(-25deg)}
+.hero-inner{position:relative;max-width:850px}.eyebrow{font:600 .78rem Cinzel,serif;letter-spacing:.34em;color:var(--gold)}
+h1{font:700 clamp(2.6rem,9vw,6.2rem) Cinzel,serif;letter-spacing:.09em;line-height:1.2;margin:22px 0;color:#f2e8f5;text-shadow:0 0 40px #8d50bd77}
+.hero h2{font-size:clamp(.95rem,3vw,1.5rem);font-weight:400;letter-spacing:.22em;color:var(--gold)}
+.lead{margin:32px auto;color:#cdbed7;font-size:.98rem;line-height:2.6}
+.btn{display:inline-block;margin:14px 8px;padding:12px 27px;border:1px solid var(--gold);color:var(--gold);background:#21122bd9;letter-spacing:.1em;transition:.2s;cursor:pointer}
+.btn:hover{background:var(--gold);color:#140d1c;transform:translateY(-2px)}.btn.secondary{border-color:#775d8b;color:#e0d0e7;background:transparent}
+section{max-width:1120px;margin:auto;padding:95px 24px;scroll-margin-top:80px}.section-title{text-align:center;margin-bottom:52px}.section-title small{display:block;font:600 .78rem Cinzel,serif;letter-spacing:.3em;color:var(--gold)}.section-title h2{font-size:clamp(1.5rem,4vw,2.3rem);font-weight:500;letter-spacing:.16em;margin:12px 0}.line{width:70px;height:1px;background:var(--gold);margin:20px auto}
+.center{text-align:center}.subtext{color:var(--muted);font-size:.91rem}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.card{padding:28px;background:linear-gradient(145deg,#29173b99,#120d1cdd);border:1px solid #8e6aa04d;box-shadow:0 12px 36px #0004;position:relative}.card:before{content:"✦";position:absolute;right:22px;top:14px;color:#b08cbd66}.card h3{margin:0 0 8px;color:var(--gold);font-size:1.15rem}.card p{margin:0;color:#cfc1d8;font-size:.9rem}
+.rules{display:grid;gap:14px;max-width:780px;margin:auto}.rule{border-left:2px solid var(--gold);background:#24152f91;padding:18px 23px}.rule b{color:var(--gold)}.rule p{margin:5px 0 0;font-size:.9rem;color:var(--muted)}
+.schedule{max-width:780px;margin:auto}.step{display:flex;gap:22px;padding:20px 0;border-bottom:1px solid #75598a55}.step .num{font:600 1.7rem Cinzel;color:var(--gold);min-width:55px}.step h3{margin:0;font-size:1.06rem}.step p{margin:5px 0 0;font-size:.88rem;color:var(--muted)}
+.cta{text-align:center;padding:72px 20px;background:linear-gradient(120deg,#1b0e2a,#35194c,#1b0e2a);border:1px solid #a5809b55}.cta .count{font:600 2.2rem Cinzel;color:var(--gold)}.notice{font-size:.8rem;color:#c9b6cf}
+footer{text-align:center;padding:34px 15px;border-top:1px solid #67477755;color:#a99ab4;font-size:.72rem}
+@media(max-width:700px){header{display:block;text-align:center;padding:12px}nav{justify-content:center;gap:12px;margin-top:6px}nav a{font-size:.68rem}.cards{grid-template-columns:1fr}.hero{min-height:77vh}.hero:before{width:250px;height:250px}.moon{right:6%;width:65px;height:65px;box-shadow:-15px 7px 0 #bba0d3}section{padding:70px 20px}.lead{font-size:.88rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* Scroll reveal: graceful fallback if JavaScript is unavailable */
+.reveal-ready .reveal{opacity:0;transform:translateY(35px);filter:blur(5px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.7,.2,1),filter .85s ease}
+.reveal-ready .reveal.visible{opacity:1;transform:translateY(0);filter:blur(0)}
+.reveal-ready .cards .card:nth-child(2),.reveal-ready .cards .card:nth-child(4){transition-delay:.12s}
+.member-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:25px}
+.member{border:1px solid #80618b66;padding:17px;background:#1c1029a6;text-align:center}
+.member strong{display:block;color:var(--gold);font-weight:500}.member span{font-size:.76rem;color:var(--muted)}
+@media(max-width:700px){.member-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.reveal-ready .reveal{opacity:1;transform:none;filter:none;transition:none}}
+
+/* Gothic academy redesign — original ornamental artwork in CSS */
+:root{--gold:#d9bc86;--ink:#eee5f1;--muted:#c0afca}
+body{background:#09060e;background-image:radial-gradient(circle at 50% 0,#3a174e 0,transparent 37%),repeating-linear-gradient(90deg,transparent 0 78px,#b795c308 79px 80px)}
+header{background:#090610f5;border-bottom:1px solid #bb986e77;box-shadow:0 4px 30px #0008}
+.brand{font-size:1.15rem;text-shadow:0 0 12px #bb8ccf88}
+nav a{letter-spacing:.09em}
+.hero{min-height:96vh;background:radial-gradient(ellipse at center,#4b256044 0%,#0b0711cc 64%),linear-gradient(90deg,#0a0711,#21102f 50%,#0a0711)}
+.hero:before{display:none}
+.hero:after{content:'✦';position:absolute;bottom:25px;left:50%;color:var(--gold);font-size:1.5rem;animation:drift 2.5s ease-in-out infinite}
+@keyframes drift{50%{transform:translateY(12px);opacity:.4}}
+.moon{top:12%;right:11%;opacity:.12}
+.magic-mirror{width:min(76vw,430px);height:min(88vw,500px);position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);border:5px double #9e7a50;border-radius:48% 48% 44% 44% / 43% 43% 55% 55%;box-shadow:0 0 0 7px #170d20,0 0 0 9px #d2b47b66,0 0 75px #a063d355,inset 0 0 65px #9c5cbb44;pointer-events:none;opacity:.85}
+.magic-mirror:before{content:'♛';position:absolute;top:-47px;left:50%;transform:translateX(-50%);font-size:2.7rem;color:var(--gold);text-shadow:0 0 20px #e2c17d}
+.magic-mirror:after{content:'❦';position:absolute;bottom:-38px;left:50%;transform:translateX(-50%);font-size:2.4rem;color:var(--gold)}
+.hero-inner{z-index:2;background:radial-gradient(ellipse,#0b0617aa,transparent 73%);padding:65px 12px}
+h1{font-size:clamp(2.9rem,10vw,7rem);text-shadow:0 2px 2px #000,0 0 32px #b984db}
+.eyebrow{color:#e3c895;text-shadow:0 1px 8px #000}
+.hero h2{color:#f3d9a6;text-shadow:0 2px 10px #000}
+section{position:relative;max-width:1200px}
+section:not(#join):before{content:'✦';position:absolute;top:30px;left:50%;transform:translateX(-50%);font-size:12px;color:#b68e64}
+.section-title small{font-size:.9rem;letter-spacing:.4em}
+.section-title h2{text-shadow:0 0 22px #6f3c8d}
+.line{width:120px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.card,.rule,.member{border:1px solid #b18b6866;background:linear-gradient(135deg,#301a40cc,#100b19f5);box-shadow:inset 0 0 0 5px #09070d99,inset 0 0 0 6px #b18b6826,0 15px 35px #0007}
+.card{padding:40px 32px;min-height:170px;transition:transform .35s,border-color .35s,box-shadow .35s;cursor:pointer}
+.card:hover,.card:focus-visible{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 15px 45px #9b5ac04d}
+.card:after{content:'DETAILS ↗';display:block;margin-top:14px;font:600 .68rem Cinzel;color:#c6a479;letter-spacing:.18em}
+.card h3{font-size:1.3rem}
+.rule{border-left:3px solid var(--gold);padding:22px 28px}
+.step .num{font-size:2.3rem;text-shadow:0 0 20px #9c6fb0}
+.cta{border:3px double #c4a67b;box-shadow:inset 0 0 0 9px #180c23,0 0 45px #6d39804d}
+.btn{border:1px solid var(--gold);box-shadow:inset 0 0 0 3px #1b1127,0 0 20px #a47bc622}
+.role-dialog{max-width:min(92vw,520px);background:linear-gradient(140deg,#2d183e,#0b0711);color:var(--ink);border:3px double var(--gold);padding:35px;box-shadow:0 0 90px #000;line-height:2}
+.role-dialog::backdrop{background:#08040cce;backdrop-filter:blur(7px)}
+.role-dialog h3{color:var(--gold);font-size:1.5rem;margin:0 0 15px}.role-dialog button{float:right;background:transparent;color:var(--gold);border:1px solid var(--gold);padding:3px 12px;cursor:pointer}
+@media(max-width:700px){.hero{min-height:87vh}.magic-mirror{width:84vw;height:104vw;max-height:470px}.hero-inner{padding:40px 5px}.lead{line-height:2.3}.card{min-height:0}.section-title small{font-size:.75rem}}
+
+</style>
+</head>
+<body>
+<header><a class="brand" href="#top">♛ TWISTED LOVE</a><nav aria-label="メインメニュー"><a href="#story">世界観</a><a href="#roles">役職</a><a href="#system">制度</a><a href="#schedule">流れ</a><a href="#members">参加者</a><a href="#join">入学案内</a></nav></header>
+<main>
+<div class="hero" id="top"><div class="moon"></div><div class="magic-mirror" aria-hidden="true"></div><div class="hero-inner"><div class="eyebrow">A SECRET LOVE &amp; WEREWOLF STORY</div><h1>TWISTED<br>LOVE</h1><h2>恋を隠す者、恋を探す者</h2><p class="lead">「その甘い言葉は、真実か。それとも偽りか。」<br>恋を探す村人。恋を隠す人狼。<br>秘密が交錯する学園で、君は誰に恋をする？</p><a class="btn" href="#join">学園への招待状を開く</a><a class="btn secondary" href="#story">物語を知る</a></div></div>
+<section id="story"><div class="section-title"><small>PROLOGUE</small><h2>秘密に満ちた学園へ</h2><div class="line"></div></div><p class="center">此処では、恋さえも秘密になる。<br>言葉を交わし、互いを知り、想いを育む。<br>けれど、誰もが同じ目的でここにいるとは限らない。<br><br>信じるか、疑うか。告げるか、隠すか。<br><span style="color:var(--gold)">物語の結末を選ぶのは、君自身だ。</span></p><p class="center subtext">ツイステなりきり × 恋愛 × 人狼 ／ 交流・炉留歓迎</p></section>
+<section id="roles"><div class="section-title"><small>SECRET ROLES</small><h2>四つの立場</h2><div class="line"></div></div><div class="cards"><article class="card"><h3>♡ 村人</h3><p>恋人・専属がいない、恋を探す者。交流を重ね、想いを伝えることができる。人狼の正体を推理することも可能。</p></article><article class="card"><h3>♛ 人狼</h3><p>すでに恋人・専属がいる、恋を隠す者。正体は本人と管理人だけの秘密。新たな恋の約束はせず、恋の行方を見守る。</p></article><article class="card"><h3>♧ 共有者</h3><p>告白が受け入れられた二人。学園に残ることも、共に卒業することもできる。</p></article><article class="card"><h3>♢ 見守り役</h3><p>正体を見破られた元人狼。正体を明かさず、交流を続けながら学園を見守る。</p></article></div></section>
+<section id="system"><div class="section-title"><small>THE RULES OF FATE</small><h2>恋と推理の制度</h2><div class="line"></div></div><div class="rules"><div class="rule"><b>♡ 告白</b><p>希望者のみ参加。土曜日23:59までに事前申請し、日曜日18時から想いを伝える。返事は承諾・お断り・保留から選べる。</p></div><div class="rule"><b>♛ 恋愛封印</b><p>人狼が週に一度、秘密の投票で村人を選ぶ。対象者は1週間告白できないが、交流は自由。告白申請の情報を利用した投票は禁止。</p></div><div class="rule"><b>♧ 人狼突破</b><p>村人は人狼だと思う人物を投票箱に記入して挑戦できる。挑戦は一人一度。正解した場合も相手の正体は公開されない。</p></div><div class="rule"><b>♢ 秘密の約束</b><p>役職は原則非公開。人狼同士も正体を知らない完全秘密制。参加・告白・交流の強制はない。</p></div></div></section>
+<section id="schedule"><div class="section-title"><small>HOW IT WORKS</small><h2>学園生活の流れ</h2><div class="line"></div></div><div class="schedule"><div class="step"><span class="num">01</span><div><h3>入学</h3><p>規則・役職を確認し、入学届を提出。役職の案内は管理人から個別に行われる。</p></div></div><div class="step"><span class="num">02</span><div><h3>交流</h3><p>雑談・炉留を通じて、自由に関係を育む。</p></div></div><div class="step"><span class="num">03</span><div><h3>申請・投票</h3><p>告白希望者は土曜日23:59までに申請。人狼突破や恋愛封印はそれぞれのルールに沿って行う。</p></div></div><div class="step"><span class="num">04</span><div><h3>日曜日 18:00</h3><p>申請者がいる週のみ告白解禁。投票結果は管理人が確認・案内する。</p></div></div><div class="step"><span class="num">05</span><div><h3>新しい物語へ</h3><p>告白成立で共有者に。残留・卒業を選び、それぞれの物語を続ける。</p></div></div></div></section>
+<section id="members"><div class="section-title"><small>STUDENT ROSTER</small><h2>参加予定メンバー</h2><div class="line"></div></div><p class="center subtext">公開を許可されたキャラクターのみ掲載。役職・個人情報は表示しません。</p><div class="member-list" id="member-list"></div><p class="center subtext" id="member-note">参加者一覧は管理人による手動更新です。LINEとは自動連携していません。</p></section>
+<section id="join"><div class="cta"><div class="section-title"><small>INVITATION</small><h2>君への招待状</h2><div class="line"></div></div><p>「さあ、君は誰に恋をする？」</p><p class="count"><span id="member-count">9</span> <span style="font-size:1rem">/ 30 名</span></p><p class="notice">参加予定人数（掲載時点）／30名集まり次第、承認開始予定</p><a class="btn" href="https://line.me/ti/g2/lBulgKT7f4JsL6tNoXNe4o2pLZijCPzOh-So4A?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default" target="_blank" rel="noopener noreferrer">LINEオープンチャットへ進む ↗</a><p class="notice">※本サイトはファンによる非公式企画です。公式作品・運営とは関係ありません。</p></div></section>
+</main><dialog class="role-dialog" id="role-dialog" aria-labelledby="role-dialog-title"><button id="role-close" aria-label="閉じる">×</button><small style="color:var(--gold);letter-spacing:.2em">SECRET ROLES</small><h3 id="role-dialog-title"></h3><p id="role-dialog-text"></p></dialog><footer>♛ TWISTED LOVE ♡<br>恋を隠す者、恋を探す者。<br>Unofficial fan community website.</footer>
+<script>
+// 役職カードを選ぶと、詳細を表示します。
+const dialog=document.getElementById('role-dialog');
+const cards=document.querySelectorAll('#roles .card');
+cards.forEach(card=>{
+ card.setAttribute('tabindex','0');card.setAttribute('role','button');card.setAttribute('aria-label',card.querySelector('h3').textContent+'の詳細を見る');
+ const show=()=>{document.getElementById('role-dialog-title').textContent=card.querySelector('h3').textContent;document.getElementById('role-dialog-text').textContent=card.querySelector('p').textContent;dialog.showModal()};
+ card.addEventListener('click',show);
+ card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show()}});
+});
+document.getElementById('role-close').addEventListener('click',()=>dialog.close());
+// 公開を許可されたキャラクターのみ追加してください。役職やLINE IDは入力しないでください。
+// 例: {name:"Jade Leech", dorm:"オクタヴィネル寮"}
+const members = [];
+const roster = document.getElementById('member-list');
+if(members.length){
+  members.forEach(m=>{
+    const item=document.createElement('div');item.className='member reveal';
+    const name=document.createElement('strong');name.textContent=m.name;
+    const dorm=document.createElement('span');dorm.textContent=m.dorm;
+    item.append(name,dorm);roster.append(item);
+  });
+}else{
+  const note=document.createElement('p');note.className='center subtext';note.textContent='メンバー紹介は準備中です。';roster.append(note);
+}
+// 参加人数は管理人がこの値を更新（現時点では9名）
+const plannedMemberCount=9;
+document.getElementById('member-count').textContent=plannedMemberCount;
+if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const targets=document.querySelectorAll('.section-title, section > p, .card, .rule, .step, .cta, .member, #member-note');
+  targets.forEach(el=>el.classList.add('reveal'));
+  document.body.classList.add('reveal-ready');
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})
+  },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+  targets.forEach(el=>observer.observe(el));
+}
+</script></body></html>
